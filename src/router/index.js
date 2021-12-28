@@ -1,14 +1,38 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import Layout from '@/layout/index.vue';
+import NewArticle from '@/views/NewArticle.vue';
+import Settings from '@/views/Settings.vue';
+import SignUp from '@/views/SignUp.vue'
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home,
+        path: '/Home',
+        name: 'Home',
+        component: Home,
+  },
+  {
+    path: '/NewArticle',
+    name: 'NewArticle',
+    component: NewArticle,
+  },
+  {
+    path: '/Settings',
+    name: 'Settings',
+    component: Settings,
+  },
+  {
+    path: '/SignUp',
+    name: 'SignUp',
+    component: SignUp,
+  },
+  {
+    path: '/SignIn',
+    name: 'SignIn',
+    component: SignUp,
   },
   {
     path: '/about',

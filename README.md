@@ -1,6 +1,18 @@
 # demo-vue2
 
-## Project setup
+## 项目规范
+
+### components
+公共组件目录，存放各页面共用的组件
+
+### views
+页面组件目录，存放各页面（路由）的视图组件
+
+### router
+路由目录
+
+### utils
+工具类目录，存放与业务无关的工具方法
 ```
 yarn install
 ```
