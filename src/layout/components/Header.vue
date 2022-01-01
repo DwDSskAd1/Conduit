@@ -24,7 +24,11 @@
           <a class="nav-link" href="">Sign up</a>
         </li> -->
         <li class="nav-item" v-for="item in navArr" :key="item.id">
-          <router-link class="nav-link" :to="{name:item.name}" active-class="active"> 
+          <router-link
+            class="nav-link"
+            :to="{ name: item.name }"
+            active-class="active"
+          >
             <i :class="item.icon"></i>&nbsp;{{ item.name }}
           </router-link>
         </li>
@@ -39,11 +43,16 @@ export default {
   data() {
     return {
       navArr: [
-        { id: 1, name: "Home" ,path:"/Home"},
-        { id: 2, name: "New Article", icon: "ion-compose" , path: '/NewArticle'},
-        { id: 3, name: "Settings", icon: "ion-gear-a" ,path: '/Settings'},
-        { id: 4, name: "Sign in" ,path: '/SignIn'},
-        { id: 5, name: "Sign up" ,path: '/SignUp'},
+        { id: 1, name: "Home", path: "/Home" },
+        {
+          id: 2,
+          name: "NewArticle",
+          icon: "ion-compose",
+          path: "/NewArticle",
+        },
+        { id: 3, name: "Settings", icon: "ion-gear-a", path: "/Settings" },
+        { id: 4, name: "SignIn", path: "/SignIn" },
+        { id: 5, name: "SignUp", path: "/SignUp" },
       ],
     };
   },
