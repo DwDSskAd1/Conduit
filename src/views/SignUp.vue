@@ -7,7 +7,7 @@
           <p class="text-xs-center">
             <router-link to="/SignIn">Have an account?</router-link>
           </p>
-          <ul v-if="userEmailUsed" class="error-messages">
+          <ul v-if="0" class="error-messages">
             <li>That email is already taken</li>
           </ul>
 
@@ -40,13 +40,11 @@ export default {
             password,
           },
         },
-      }).then((res) => {
+      })
+      .then((res) => {
         console.log(res);
       });
     },
-  },
-  watch: {
-    SignUp() {},
   },
 };
 </script>

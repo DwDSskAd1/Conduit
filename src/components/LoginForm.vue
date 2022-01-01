@@ -1,11 +1,12 @@
 <template>
   <form>
-    <fieldset class="form-group">
+    <fieldset class="form-group" >
       <input
         class="form-control form-control-lg"
         type="text"
         placeholder="Your Name"
         v-model="form.username"
+        v-if="!isLogin"
       />
     </fieldset>
     <fieldset class="form-group">

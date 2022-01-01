@@ -3,10 +3,10 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Layout from '@/layout/index.vue';
 import Blank from '@/layout/blank.vue';
-import NewArticle from '@/views/NewArticle.vue';
-import Settings from '@/views/Settings.vue';
-import SignUp from '@/views/SignUp.vue';
-import SignIn from '@/views/SignIn.vue';
+// import NewArticle from '@/views/NewArticle.vue';
+// import Settings from '@/views/Settings.vue';
+// import SignUp from '@/views/SignUp.vue';
+// import SignIn from '@/views/SignIn.vue';
 
 Vue.use(VueRouter);
 
@@ -18,22 +18,23 @@ const routes = [
     children: [
       {
         path: '/home',
+        name: 'Home',
         component: Home
       },
       {
         path: '/NewArticle',
         name: 'NewArticle',
-        component: NewArticle,
+        component: () => import(/* webpackChunkName: "NewArticle" */ '../views/NewArticle.vue'),
       },
       {
         path: '/Settings',
         name: 'Settings',
-        component: Settings,
+        component: () => import(/* webpackChunkName: "Settings" */ '../views/Settings.vue'),
       },
       {
         path: '/SignUp',
         name: 'SignUp',
-        component: SignUp,
+        component: () => import(/* webpackChunkName: "SignUp" */ '../views/SignUp.vue'),
       },
       {
         path: '/about',
@@ -52,7 +53,7 @@ const routes = [
       {
         path: '',
         name: 'SignIn',
-        component: SignIn,
+        component: () => import(/* webpackChunkName: "SignIn" */ '../views/SignIn.vue'),
       },
     ]
   }

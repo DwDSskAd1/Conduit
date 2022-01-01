@@ -7,11 +7,6 @@
           <p class="text-xs-center">
             <router-link to="/SignUp">Need an account?</router-link>
           </p>
-
-          <ul v-if="userEmailUsed" class="error-messages">
-            <li>That email is already taken</li>
-          </ul>
-
           <login-form @submit="onSubmit" :is-login="true" />
         </div>
       </div>
@@ -21,25 +16,28 @@
 
 <script>
 import LoginForm from "@/components/LoginForm.vue";
+import axios from "@/api/axios";
 export default {
-  name: "SignUp",
+  name: "SignIn",
   components: { LoginForm },
-  data() {
-    return {
-      userName: "",
-      userEmail: JSON.parse(localStorage.getItem("userEmail")),
-      userPwd: "",
-      userEmailUsed: false,
-    };
-  },
   methods: {
-    onSubmit() {
+    onSubmit(form) {
       // TODO: 登陆接口
-      console.log(456);
+      const { email, password } = form;
+      axios({
+        method: "post",
+        url: "/users/login",
+        data: {
+          user: {
+            email,
+            password,
+          },
+        },
+      })
+      // .then(res => {
+      //   console.log(res);
+      // });
     },
-  },
-  watch: {
-    SignUp() {},
   },
 };
 </script>
