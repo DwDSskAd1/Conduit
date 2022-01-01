@@ -5,13 +5,14 @@
         <div class="col-md-6 offset-md-3 col-xs-12">
           <h1 class="text-xs-center">{{ $route.name }}</h1>
           <p class="text-xs-center">
-            <router-link to="/SignIn">Have an account?</router-link>
+            <router-link to="/SignUp">Need an account?</router-link>
           </p>
+
           <ul v-if="userEmailUsed" class="error-messages">
             <li>That email is already taken</li>
           </ul>
 
-          <sign-up-form @submit="signUp" />
+          <login-form @submit="onSubmit" :is-login="true" />
         </div>
       </div>
     </div>
@@ -19,30 +20,22 @@
 </template>
 
 <script>
-import SignUpForm from "@/components/LoginForm.vue";
-import axios from "@/api/axios";
-
+import LoginForm from "@/components/LoginForm.vue";
 export default {
   name: "SignUp",
-  components: {
-    SignUpForm,
+  components: { LoginForm },
+  data() {
+    return {
+      userName: "",
+      userEmail: JSON.parse(localStorage.getItem("userEmail")),
+      userPwd: "",
+      userEmailUsed: false,
+    };
   },
   methods: {
-    signUp(form) {
-      const { username, email, password } = form;
-      axios({
-        method: "post",
-        url: "/users",
-        data: {
-          user: {
-            username,
-            email,
-            password,
-          },
-        },
-      }).then((res) => {
-        console.log(res);
-      });
+    onSubmit() {
+      // TODO: 登陆接口
+      console.log(456);
     },
   },
   watch: {
