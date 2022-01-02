@@ -34,9 +34,10 @@ export default {
           },
         },
       })
-      // .then(res => {
-      //   console.log(res);
-      // });
+      .then(res => {
+        console.log('@',res);
+        router.push('/home')
+      });
     },
   },
 };

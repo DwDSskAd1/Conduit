@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-6 offset-md-3 col-xs-12">
           <h1 class="text-xs-center">{{ $route.name }}</h1>
-          <p class="text-xs-center">
+          <p  class="text-xs-center">
             <router-link to="/SignIn">Have an account?</router-link>
           </p>
           <ul v-if="0" class="error-messages">
@@ -42,7 +42,9 @@ export default {
         },
       })
       .then((res) => {
-        console.log(res);
+        console.log('@@',res);
+        // return res
+        localStorage.setItem('user',JSON.stringify(res))
       });
     },
   },
