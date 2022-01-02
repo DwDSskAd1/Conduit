@@ -17,12 +17,12 @@
 <script>
 import LoginForm from "@/components/LoginForm.vue";
 import axios from "@/api/axios";
+
 export default {
   name: "SignIn",
   components: { LoginForm },
   methods: {
     onSubmit(form) {
-      // TODO: 登陆接口
       const { email, password } = form;
       axios({
         method: "post",
@@ -33,10 +33,10 @@ export default {
             password,
           },
         },
-      })
-      .then(res => {
-        console.log('@',res);
-        router.push('/home')
+      }).then((res) => {
+        console.log("@", res);
+        this.$store.commit("setUser", res.user);
+        this.$router.push("/home");
       });
     },
   },

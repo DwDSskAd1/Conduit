@@ -1,6 +1,6 @@
 <template>
   <form>
-    <fieldset class="form-group" >
+    <fieldset class="form-group">
       <input
         class="form-control form-control-lg"
         type="text"
@@ -48,8 +48,8 @@ export default {
     return {
       form: {
         username: "",
-        email: "",
-        password: "",
+        email: "qwerdfb45@163.com",
+        password: "qwer",
       },
     };
   },
