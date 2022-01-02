@@ -24,7 +24,6 @@ instance.interceptors.response.use(
     return res.data;
   },
   (err) => {
-    console.log('error', err.message)
     return Promise.reject(err);
   }
 )

@@ -7,8 +7,13 @@
           <p class="text-xs-center">
             <router-link to="/SignIn">Have an account?</router-link>
           </p>
-          <ul v-if="0" class="error-messages">
-            <li>That email is already taken</li>
+          <ul class="error-messages">
+            <!-- 将错误对象全部输出，对象也可以使用 v-for, 具体可查看文档 -->
+            <template v-for="(messages, field) in errors">
+              <li v-for="(message, index) in messages" :key="index">
+                {{ field }} {{ message }}
+              </li>
+            </template>
           </ul>
 
           <sign-up-form @submit="signUp" />
@@ -27,6 +32,11 @@ export default {
   components: {
     SignUpForm,
   },
+  data() {
+    return {
+      errors: {},
+    };
+  },
   methods: {
     signUp(form) {
       const { username, email, password } = form;
@@ -42,10 +52,15 @@ export default {
         },
       })
         .then((res) => {
-
           console.log("@@", res);
           // return res
         })
+        .catch((e) => {
+          // errors 是一个对象，{email: ['该邮箱已注册'], username: ['xxx']}
+          this.errors = e.response.data.errors;
+          // 通过 dir 可以查看错误对象的信息
+          console.dir(e);
+        });
     },
   },
 };
